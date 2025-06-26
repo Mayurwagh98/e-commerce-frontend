@@ -2,10 +2,26 @@ import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#b8926a] to-[#8a6c55] flex items-center justify-center px-4 font-serif">
@@ -17,19 +33,34 @@ const AuthPage = () => {
             Sign up and get 30 days free trial
           </p>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
             {!isLogin && (
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d]"
-              />
+              <>
+                <input
+                  type="text"
+                  placeholder={`${
+                    errors.firstName ? "This field is required" : "Full Name"
+                  }`}
+                  className={`w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d] ${
+                    errors.firstName ? "border-red-500" : ""
+                  } outline-0`}
+                  {...register("firstName", { required: true })}
+                />
+
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  className="w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d]"
+                  {...register("lastName")}
+                />
+              </>
             )}
 
             <input
               type="email"
               placeholder="Email Address"
               className="w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d]"
+              {...register("email", { required: true })}
             />
 
             <div className="relative">
@@ -37,6 +68,7 @@ const AuthPage = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 className="w-full px-4 py-3 pr-10 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d]"
+                {...register("password", { required: true })}
               />
               <button
                 type="button"
