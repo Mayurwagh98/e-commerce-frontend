@@ -1,7 +1,12 @@
 import "./App.css";
+import AuthPage from "./pages/Auth";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <AuthPage />
+    </>
+  );
 }
 
 export default App;
