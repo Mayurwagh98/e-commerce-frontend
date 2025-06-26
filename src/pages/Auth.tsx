@@ -17,7 +17,6 @@ const AuthPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -132,24 +131,10 @@ const AuthPage = () => {
         {/* Right Image Section */}
         <div className="hidden md:block w-1/2 relative">
           <img
-            src="https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg"
+            src="https://img.freepik.com/free-photo/cyber-monday-shopping-sales_23-2148688560.jpg?ga=GA1.1.988347148.1727513554&semt=ais_items_boosted&w=740"
             alt="Teamwork"
-            className="h-full object-cover w-full"
+            className="h-full w-full"
           />
-          <div className="absolute bottom-4 left-4 bg-white px-4 py-3 rounded-xl shadow text-sm">
-            <p className="font-semibold">Daily Meeting</p>
-            <p className="text-xs text-gray-500">12:00 PM - 1:00 PM</p>
-            <div className="mt-2 flex space-x-2">
-              {[1, 2, 3].map((i) => (
-                <img
-                  key={i}
-                  src={`https://i.pravatar.cc/30?img=${i + 10}`}
-                  alt="avatar"
-                  className="w-6 h-6 rounded-full border border-white"
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
