@@ -1,4 +1,5 @@
 import makeApiRequest from "../helpers/axiosFunction";
+import { handleApiError } from "../helpers/handleApiError";
 import { BACKEND_URL } from "../utils/urls";
 import { toast } from "./useToast";
 
@@ -27,11 +28,7 @@ const useAuth = () => {
         });
       }
     } catch (error: unknown) {
-      toast({
-        variant: "failed",
-        title: "Something went wrong",
-        description: error.response.data.message,
-      });
+      handleApiError(error);
     }
   };
 
