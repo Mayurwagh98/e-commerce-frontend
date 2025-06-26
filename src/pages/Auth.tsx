@@ -3,6 +3,7 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { useForm, SubmitHandler } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
 
 type Inputs = {
   firstName: string;
@@ -12,6 +13,7 @@ type Inputs = {
 };
 
 const AuthPage = () => {
+  const { userAuth } = useAuth();
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -20,7 +22,9 @@ const AuthPage = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    userAuth(data);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#b8926a] to-[#8a6c55] flex items-center justify-center px-4 font-serif">
