@@ -41,9 +41,9 @@ const AuthPage = () => {
                   placeholder={`${
                     errors.firstName ? "This field is required" : "Full Name"
                   }`}
-                  className={`w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d] ${
+                  className={`w-full px-4 py-3 rounded-full border border-gray-300 bg-white outline-none focus:outline-none focus:ring-2 focus:ring-[#b47c4d] ${
                     errors.firstName ? "border-red-500" : ""
-                  } outline-0`}
+                  }`}
                   {...register("firstName", { required: true })}
                 />
 
@@ -58,16 +58,24 @@ const AuthPage = () => {
 
             <input
               type="email"
-              placeholder="Email Address"
-              className="w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d]"
+              placeholder={`${
+                errors.email ? "This field is required" : "Email Address"
+              }`}
+              className={`w-full px-4 py-3 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d] ${
+                errors.email ? "border-red-500" : ""
+              }`}
               {...register("email", { required: true })}
             />
 
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                className="w-full px-4 py-3 pr-10 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d]"
+                placeholder={`${
+                  errors.password ? "This field is required" : "Password"
+                }`}
+                className={`w-full px-4 py-3 pr-10 rounded-full border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#b47c4d] ${
+                  errors.password ? "border-red-500" : ""
+                }`}
                 {...register("password", { required: true })}
               />
               <button
