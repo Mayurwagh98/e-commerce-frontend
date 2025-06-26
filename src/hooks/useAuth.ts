@@ -1,5 +1,6 @@
 import makeApiRequest from "../helpers/axiosFunction";
 import { BACKEND_URL } from "../utils/urls";
+import { toast } from "./useToast";
 
 interface signupFormProps {
   firstName: string;
@@ -15,16 +16,22 @@ const useAuth = () => {
         "post",
         `/auth/signup`,
         payload,
-        {},
+        { withCredentials: true },
         BACKEND_URL
       );
-      console.log("data:", data);
       if (data.success) {
-        alert(data.message);
+        toast({
+          variant: "success",
+          title: "User created",
+          description: data.message,
+        });
       }
     } catch (error: unknown) {
-      console.log("error:", error);
-      alert(error.response.data.message);
+      toast({
+        variant: "failed",
+        title: "Something went wrong",
+        description: error.response.data.message,
+      });
     }
   };
 
