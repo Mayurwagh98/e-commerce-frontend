@@ -1,10 +1,10 @@
 import "./App.css";
-import AuthPage from "./pages/Auth";
+import AllRoutes from "./components/AllRoutes";
 
 function App() {
   return (
     <>
-      <AuthPage />
+      <AllRoutes />
     </>
   );
 }
