@@ -6,6 +6,7 @@ const AllRoutes = () => {
   return (
     <>
       <Routes>
+        {/* <Route path="/" element={<Landing />} /> */}
         <Route path="auth" element={<AuthPage />} />
         <Route path="dashboard" element={<EcommerceDashboard />} />
       </Routes>
