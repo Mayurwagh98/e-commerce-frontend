@@ -4,6 +4,7 @@ import { Input } from "../components/ui/Input";
 import { ArrowRight, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 const Landing = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -169,38 +170,7 @@ const Landing = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-8 lg:px-32">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Fashionista</h3>
-            <p className="text-sm text-gray-400">
-              Redefining online fashion shopping with quality, variety, and
-              unbeatable prices.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>About Us</li>
-              <li>Contact</li>
-              <li>FAQs</li>
-              <li>Privacy Policy</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3">Follow Us</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>Instagram</li>
-              <li>Facebook</li>
-              <li>Twitter</li>
-              <li>Pinterest</li>
-            </ul>
-          </div>
-        </div>
-        <p className="text-center text-xs text-gray-500 mt-12">
-          &copy; 2025 Fashionista. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };
