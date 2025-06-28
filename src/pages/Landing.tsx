@@ -1,11 +1,10 @@
-import React from "react";
-import { Button } from "../components/ui/button";
-import { Badge } from "../components/ui/badge";
-import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/Button";
+import { Badge } from "../components/ui/Badge";
+import { Input } from "../components/ui/Input";
 import { ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
-const LandingPage = () => {
+const Landing = () => {
   return (
     <div className="bg-gradient-to-br from-[#fefefe] to-[#f2f2f2] min-h-screen">
       {/* Hero Section */}
@@ -27,12 +26,12 @@ const LandingPage = () => {
           </p>
           <div className="flex gap-4">
             <Button
-              size="lg"
-              className="bg-pink-500 hover:bg-pink-600 text-white"
+              size="md"
+              className="bg-pink-500 hover:bg-pink-600 text-white flex justify-center items-center"
             >
               Shop Now <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-gray-300">
+            <Button size="md" variant="outline" className="border-gray-300">
               Explore Collection
             </Button>
           </div>
@@ -183,4 +182,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default Landing;
