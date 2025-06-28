@@ -38,7 +38,7 @@ const sections = [
     title: "Your Rights",
     icon: Users,
     description:
-      "Request access, changes, or deletion of your personal data by contacting us at support@fashionista.com.",
+      "Request access, changes, or deletion of your personal data by contacting us at support@threadory.com.",
   },
   {
     title: "Policy Updates",
@@ -51,7 +51,7 @@ const sections = [
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Privacy Policy | Fashionista";
+    document.title = "Privacy Policy | Threadory";
   }, []);
   return (
     <>
@@ -103,7 +103,7 @@ const PrivacyPolicy = () => {
         >
           If you have any questions, feel free to reach us at{" "}
           <span className="text-pink-600 font-medium">
-            support@fashionista.com
+            support@threadory.com
           </span>
         </motion.div>
       </div>

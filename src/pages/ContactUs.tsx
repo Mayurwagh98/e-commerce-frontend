@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const ContactUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Contact Us | Fashionista";
+    document.title = "Contact Us | Threadory";
   }, []);
   return (
     <>
@@ -54,7 +54,7 @@ const ContactUs = () => {
               <Mail className="text-pink-500 w-6 h-6 mt-1" />
               <div>
                 <h3 className="font-medium text-gray-700">Email</h3>
-                <p className="text-gray-600 text-sm">support@fashionista.com</p>
+                <p className="text-gray-600 text-sm">support@threadory.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">

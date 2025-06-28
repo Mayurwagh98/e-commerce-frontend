@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const AboutUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "About Us | Fashionista";
+    document.title = "About Us | Threadory";
   }, []);
   return (
     <>
@@ -27,11 +27,13 @@ const AboutUs = () => {
         >
           <p className="text-lg text-gray-700 mb-6">
             Welcome to{" "}
-            <span className="font-semibold text-pink-600">Fashionista</span> —
-            your ultimate online destination for trend-setting fashion. Founded
-            with the passion to bring premium style to your doorstep, our
-            mission is to inspire confidence through clothing that feels as good
-            as it looks.
+            <span className="font-semibold text-pink-600">
+              Threadory ("Threads" + "Story")
+            </span>{" "}
+            — your ultimate online destination for trend-setting fashion.
+            Founded with the passion to bring premium style to your doorstep,
+            our mission is to inspire confidence through clothing that feels as
+            good as it looks.
           </p>
           <p className="text-lg text-gray-700 mb-6">
             We handpick the best designs across men’s and women’s fashion,
@@ -95,8 +97,8 @@ const AboutUs = () => {
             Empowering You Through Fashion
           </motion.h2>
           <p className="text-gray-600 text-md max-w-xl mx-auto">
-            Fashionista isn't just about what you wear — it's about how you
-            feel. Let's walk the runway of life with confidence, creativity, and
+            Threadory isn't just about what you wear — it's about how you feel.
+            Let's walk the runway of life with confidence, creativity, and
             class.
           </p>
         </div>

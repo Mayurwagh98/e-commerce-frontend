@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Can I modify my order after placing it?",
     answer:
-      "If your order hasn’t shipped yet, contact us at support@fashionista.com and we’ll do our best to accommodate the change.",
+      "If your order hasn’t shipped yet, contact us at support@threadory.com and we’ll do our best to accommodate the change.",
   },
 ];
 
@@ -39,7 +39,7 @@ const Faqs = () => {
   };
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "FAQs | Fashionista";
+    document.title = "FAQs | Threadory";
   }, []);
   return (
     <>
@@ -91,7 +91,7 @@ const Faqs = () => {
           >
             Can't find what you're looking for? Contact us at{" "}
             <span className="text-pink-600 font-medium">
-              support@fashionista.com
+              support@threadory.com
             </span>
           </motion.div>
         </div>

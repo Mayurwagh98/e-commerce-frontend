@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-12 px-8 lg:px-32">
       <div className="grid md:grid-cols-3 gap-8">
         <div>
-          <h3 className="text-xl font-bold mb-4">Fashionista</h3>
+          <h3 className="text-xl font-bold mb-4">Threadory</h3>
           <p className="text-sm text-gray-400">
             Redefining online fashion shopping with quality, variety, and
             unbeatable prices.
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-center text-xs text-gray-500 mt-12">
-        &copy; 2025 Fashionista. All rights reserved.
+        &copy; 2025 Threadory. All rights reserved.
       </p>
     </footer>
   );

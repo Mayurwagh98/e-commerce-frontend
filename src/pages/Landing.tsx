@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const Landing = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Home | Fashionista";
+    document.title = "Home | Threadory";
   }, []);
   return (
     <div className="bg-gradient-to-br from-[#fefefe] to-[#f2f2f2] min-h-screen">
