@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "About Us | Fashionista";
+  }, []);
   return (
     <>
       <div className="bg-gradient-to-br from-[#fefefe] to-[#f2f2f2] min-h-screen py-20 px-8 lg:px-32">

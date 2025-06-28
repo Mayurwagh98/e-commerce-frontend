@@ -3,8 +3,13 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Input } from "../components/ui/Input";
 import { Button } from "../components/ui/Button";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const ContactUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Contact Us | Fashionista";
+  }, []);
   return (
     <>
       <div className="bg-gradient-to-br from-white to-pink-50 min-h-screen py-20 px-8 lg:px-32">

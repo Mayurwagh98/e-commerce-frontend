@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 
 const faqs = [
@@ -37,7 +37,10 @@ const Faqs = () => {
   const toggleFAQ = (index: number | null) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "FAQs | Fashionista";
+  }, []);
   return (
     <>
       <div className="bg-gradient-to-br from-white to-pink-50 min-h-screen py-20 px-8 lg:px-32">

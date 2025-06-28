@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, LockKeyhole, Globe, Users } from "lucide-react";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const sections = [
   {
@@ -48,6 +49,10 @@ const sections = [
 ];
 
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Privacy Policy | Fashionista";
+  }, []);
   return (
     <>
       <div className="bg-gradient-to-br from-pink-50 to-white min-h-screen py-24 px-6 lg:px-32">
