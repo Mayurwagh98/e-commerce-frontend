@@ -16,9 +16,9 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
   return (
     <div className="bg-gradient-to-br from-[#fefefe] to-[#f2f2f2] min-h-screen">
@@ -128,7 +128,7 @@ const Landing = () => {
           {[1, 2, 3].map((_, i) => (
             <motion.div
               key={i}
-              className="rounded-xl border p-6 shadow-md bg-gray-50"
+              className="rounded-xl p-6 shadow-md bg-gray-50"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
