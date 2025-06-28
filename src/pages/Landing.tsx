@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import FeaturedCategories from "../components/Landing/FeaturedCategories";
+import Testimonials from "../components/Landing/Testimonials";
+import NewsLetter from "../components/Landing/NewsLetter";
 
 const Landing = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -76,53 +78,13 @@ const Landing = () => {
       </section>
       {/* Featured Categories */}
       <FeaturedCategories />
+
       {/* Testimonials */}
-      <section className="bg-white px-8 lg:px-32 py-20">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-12 text-center">
-          What Our Customers Say
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((_, i) => (
-            <motion.div
-              key={i}
-              className="rounded-xl p-6 shadow-md bg-gray-50"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <Star className="text-yellow-400" fill="currentColor" />
-                <Star className="text-yellow-400" fill="currentColor" />
-                <Star className="text-yellow-400" fill="currentColor" />
-                <Star className="text-yellow-400" fill="currentColor" />
-                <Star className="text-yellow-400" fill="currentColor" />
-              </div>
-              <p className="text-gray-600 mb-4">
-                “Absolutely love the quality and designs! Fast delivery and
-                amazing customer service.”
-              </p>
-              <p className="font-semibold text-gray-800">Sarah Thompson</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <Testimonials />
+
       {/* Newsletter CTA */}
-      <section className="bg-pink-100 py-20 px-8 lg:px-32 text-center">
-        <h2 className="text-3xl font-bold text-pink-700 mb-4">
-          Join Our Style Circle 💌
-        </h2>
-        <p className="text-gray-700 max-w-xl mx-auto mb-6">
-          Get the latest updates, fashion tips, and exclusive discounts
-          delivered straight to your inbox.
-        </p>
-        <div className="max-w-md mx-auto flex gap-2">
-          <Input placeholder="Enter your email" className="rounded-xl" />
-          <Button className="bg-pink-500 hover:bg-pink-600 text-white rounded-xl">
-            Subscribe
-          </Button>
-        </div>
-      </section>
+      <NewsLetter />
+
       {/* Footer */}
       <Footer />
     </div>
