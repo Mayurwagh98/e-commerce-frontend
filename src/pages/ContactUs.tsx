@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { Input } from "./ui/Input";
-import { Button } from "./ui/Button";
-import Footer from "./Footer";
+import { Input } from "../components/ui/Input";
+import { Button } from "../components/ui/Button";
+import Footer from "../components/Footer";
 
 const ContactUs = () => {
   return (
