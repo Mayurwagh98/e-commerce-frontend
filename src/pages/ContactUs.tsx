@@ -47,7 +47,7 @@ const ContactUs = () => {
               <Phone className="text-pink-500 w-6 h-6 mt-1" />
               <div>
                 <h3 className="font-medium text-gray-700">Phone</h3>
-                <p className="text-gray-600 text-sm">+91 98765 43210</p>
+                <p className="text-gray-600 text-sm">+91 8208663529</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
