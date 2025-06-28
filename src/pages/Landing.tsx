@@ -2,9 +2,24 @@ import { Button } from "../components/ui/Button";
 import { Badge } from "../components/ui/Badge";
 import { Input } from "../components/ui/Input";
 import { ArrowRight, Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Landing = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const heroImages = [
+    "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+    "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+    "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-gradient-to-br from-[#fefefe] to-[#f2f2f2] min-h-screen">
       {/* Hero Section */}
@@ -41,12 +56,20 @@ const Landing = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
+          className="relative h-[400px] w-full overflow-hidden rounded-2xl shadow-2xl"
         >
-          <img
-            src="https://images.unsplash.com/photo-1600185365985-cb5f3a999d3e"
-            alt="Fashion Hero"
-            className="rounded-2xl shadow-2xl"
-          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={heroImages[currentImage]}
+              src={heroImages[currentImage]}
+              alt="Fashion Hero"
+              className="absolute h-full w-full object-cover"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+            />
+          </AnimatePresence>
         </motion.div>
       </section>
 
@@ -60,22 +83,22 @@ const Landing = () => {
             {
               name: "Men",
               image:
-                "https://images.unsplash.com/photo-1593032465171-8f785ba67e45",
+                "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWVuJTIwY2xvdGhlc3xlbnwwfHwwfHx8MA%3D%3D",
             },
             {
               name: "Women",
               image:
-                "https://images.unsplash.com/photo-1519741491051-480437eea4c2",
+                "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d29tZW4lMjBjbG90aGVzfGVufDB8fDB8fHww",
             },
             {
               name: "Accessories",
               image:
-                "https://images.unsplash.com/photo-1600180758890-6ec2b50a31b0",
+                "https://images.unsplash.com/3/www.madebyvadim.com.jpg?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8fDA%3D",
             },
             {
               name: "Shoes",
               image:
-                "https://images.unsplash.com/photo-1589987607627-15a07c6c414b",
+                "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=294&dpr=2&h=294&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXRodW1ibmFpbHx8MTA3MzM5NDR8fGVufDB8fHx8fA%3D%3D",
             },
           ].map((cat, i) => (
             <motion.div
