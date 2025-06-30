@@ -23,7 +23,7 @@ const AuthPage = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    userAuth(data);
+    userAuth(data, isLogin);
   };
 
   return (

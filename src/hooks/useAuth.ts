@@ -5,19 +5,22 @@ import { BACKEND_URL } from "../utils/urls";
 import { toast } from "./useToast";
 
 interface signupFormProps {
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   password: string;
 }
 
 const useAuth = () => {
   const navigate = useNavigate();
-  const userAuth = async (payload: signupFormProps) => {
+  const userAuth = async (payload: signupFormProps, isLogin: boolean) => {
+    payload = isLogin
+      ? { email: payload.email, password: payload.password }
+      : payload;
     try {
       const { data } = await makeApiRequest(
         "post",
-        `/auth/signup`,
+        `/auth/${isLogin ? "login" : "signup"}`,
         payload,
         { withCredentials: true },
         BACKEND_URL
