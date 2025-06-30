@@ -1,9 +1,11 @@
 import makeApiRequest from "../helpers/axiosFunction";
 import { handleApiError } from "../helpers/handleApiError";
+import useProductStore from "../store/slices/products";
 import { BACKEND_URL } from "../utils/urls";
 import { useEffect } from "react";
 
 const useGetProducts = () => {
+  const setProducts = useProductStore((state) => state.setProducts);
   useEffect(() => {
     getProducts();
   }, []);
@@ -17,7 +19,7 @@ const useGetProducts = () => {
         { withCredentials: true },
         BACKEND_URL
       );
-      console.log("data:", data);
+      setProducts(data.products);
     } catch (error: unknown) {
       handleApiError(error);
     }
