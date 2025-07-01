@@ -32,8 +32,13 @@ const SheetContent = React.forwardRef<
     <SheetPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed z-50 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out",
+        "fixed z-50 bg-white p-6 shadow-lg transition-all duration-300 ease-in-out",
         {
+          // 👇 Animate in from left
+          "data-[state=open]:animate-in data-[state=closed]:animate-out data-[side=left]:slide-in-from-left data-[side=left]:slide-out-to-left":
+            side === "left",
+
+          // Optional: support for other sides
           "inset-y-0 left-0 w-3/4 sm:max-w-sm": side === "left",
           "inset-y-0 right-0 w-3/4 sm:max-w-sm": side === "right",
           "inset-x-0 top-0 h-3/4 sm:max-h-sm": side === "top",
@@ -44,7 +49,7 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      <SheetPrimitive.Close className="absolute top-4 right-4 rounded-sm opacity-70 ring-offset-background transition hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+      <SheetPrimitive.Close className="absolute top-4 right-4 ...">
         <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>

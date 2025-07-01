@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
-import { Button } from "../ui/button";
+import { Button } from "../ui/Button";
 import { Menu, Home, Settings, User } from "lucide-react";
 import { useState } from "react";
 import { Separator } from "../ui/separator";
