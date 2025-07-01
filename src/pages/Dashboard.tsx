@@ -1,15 +1,4 @@
-import React from "react";
-import {
-  Search,
-  Heart,
-  ShoppingCart,
-  User2,
-  MapPin,
-  ChevronDown,
-  Star,
-  Truck,
-  ShieldCheck,
-} from "lucide-react";
+import { Star, Truck, ShieldCheck } from "lucide-react";
 import Navbar from "../components/Navbar/Navbar";
 
 const categories = [
@@ -25,25 +14,29 @@ const featuredProducts = [
   {
     name: "Smartphone X",
     price: "$699",
-    image: "https://via.placeholder.com/300x200?text=Smartphone",
+    image:
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D",
     rating: 4.5,
   },
   {
     name: "Wireless Headphones",
     price: "$199",
-    image: "https://via.placeholder.com/300x200?text=Headphones",
+    image:
+      "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhZHBob25lfGVufDB8fDB8fHww",
     rating: 4.2,
   },
   {
     name: "Smartwatch Pro",
     price: "$249",
-    image: "https://via.placeholder.com/300x200?text=Smartwatch",
+    image:
+      "https://plus.unsplash.com/premium_photo-1712764121254-d9867c694b81?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c21hcnR3YXRjaHxlbnwwfHwwfHx8MA%3D%3D",
     rating: 4.7,
   },
   {
     name: "Gaming Laptop",
     price: "$1299",
-    image: "https://via.placeholder.com/300x200?text=Laptop",
+    image:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wfGVufDB8fDB8fHww",
     rating: 4.8,
   },
 ];
@@ -67,7 +60,7 @@ const EcommerceDashboard = () => {
               Shop Now »
             </button>
             <img
-              src="https://via.placeholder.com/300x200?text=Electronics+Banner"
+              src="https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWxlY3Ryb25pY3N8ZW58MHx8MHx8fDA%3D"
               alt="Electronics"
               className="absolute bottom-2 right-2 w-40 md:w-48"
             />
@@ -97,7 +90,7 @@ const EcommerceDashboard = () => {
           {categories.map((cat) => (
             <div
               key={cat.label}
-              className="bg-white shadow-sm rounded-lg p-4 text-center border relative"
+              className="bg-white shadow-sm rounded-lg p-4 text-center relative"
             >
               <div className="text-3xl mb-2">{cat.image}</div>
               <h4 className="text-sm font-semibold">{cat.label}</h4>
@@ -118,7 +111,7 @@ const EcommerceDashboard = () => {
             {featuredProducts.map((product) => (
               <div
                 key={product.name}
-                className="border rounded-lg shadow-sm p-4 text-center"
+                className="rounded-lg shadow-sm p-4 text-center"
               >
                 <img
                   src={product.image}
