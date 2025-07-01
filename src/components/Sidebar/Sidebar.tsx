@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, Home, User, Settings } from "lucide-react";
 import Navbar from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = ({ children }: { children: JSX.Element }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -25,14 +26,14 @@ const Sidebar: React.FC = ({ children }: { children: JSX.Element }) => {
 
           {/* Sidebar Items */}
           <div className="mt-10 space-y-6">
-            <div className="flex items-center space-x-4">
+            <Link to={"/dashboard"} className="flex items-center space-x-4">
               <Home size={20} />
-              {isOpen && <span>Home</span>}
-            </div>
-            <div className="flex items-center space-x-4">
+              {isOpen && <span>Dashboard</span>}
+            </Link>
+            <Link to={"/products"} className="flex items-center space-x-4">
               <User size={20} />
-              {isOpen && <span>Profile</span>}
-            </div>
+              {isOpen && <span>Products</span>}
+            </Link>
             <div className="flex items-center space-x-4">
               <Settings size={20} />
               {isOpen && <span>Settings</span>}
