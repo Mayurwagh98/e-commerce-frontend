@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import type { Product } from "../../store/types";
 
 const SingleProduct = ({ product }: { product: Product }) => {
+  const naivgate = useNavigate();
   return (
     <div
       key={product._id}
       className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
+      onClick={() => naivgate("/product-details/" + product._id)}
     >
       <img
         src={product.imageUrl}
