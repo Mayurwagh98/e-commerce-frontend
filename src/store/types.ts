@@ -10,3 +10,12 @@ export interface Product {
   stock: number;
   // add other product properties
 }
+
+export interface ProductDetailsState {
+  productDetails: Product;
+  loading: boolean;
+  error: string | null;
+  setProductDetails: (productDetails: Product) => void;
+  setLoading: (loading: boolean) => void;
+  setError: (error: string | null) => void;
+}
