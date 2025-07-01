@@ -1,8 +1,8 @@
-import makeApiRequest from "../helpers/axiosFunction";
-import { handleApiError } from "../helpers/handleApiError";
-import useProductStore from "../store/slices/products";
-import { BACKEND_URL } from "../utils/urls";
 import { useEffect } from "react";
+import makeApiRequest from "../../helpers/axiosFunction";
+import useProductStore from "../../store/slices/products";
+import { BACKEND_URL } from "../../utils/urls";
+import { handleApiError } from "../../helpers/handleApiError";
 
 const useGetProducts = () => {
   const setProducts = useProductStore((state) => state.setProducts);
