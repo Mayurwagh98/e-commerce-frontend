@@ -1,6 +1,6 @@
 import SingleProduct from "../../components/Products/SingleProduct";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import useGetProducts from "../../hooks/useGetProducts";
+import useGetProducts from "../../hooks/product/useGetProducts";
 import useProductStore from "../../store/slices/products";
 import type { Product } from "../../store/types";
 
