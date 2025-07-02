@@ -32,11 +32,11 @@ const SingleProduct = ({ product }: { product: Product }) => {
           <span>{product.stock} in stock</span>
         </div>
         <div className="flex justify-between items-center">
-          <button className="mt-4 w-[45%] bg-black hover:bg-pink-700 text-white py-2 px-4 rounded-lg">
+          <button className="mt-4 w-[45%] bg-black hover:bg-pink-700 text-white py-2 px-4 rounded-lg text-sm">
             Add to Cart
           </button>
           <button
-            className="mt-4 w-[45%] bg-red-600 hover:bg-pink-700 text-white py-2 px-4 rounded-lg"
+            className="mt-4 w-[45%] bg-red-600 hover:bg-pink-700 text-white py-2 px-4 rounded-lg text-sm"
             onClick={() => deleteProduct(product._id)}
           >
             Delete
