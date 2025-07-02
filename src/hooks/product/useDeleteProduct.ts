@@ -2,6 +2,7 @@ import makeApiRequest from "../../helpers/axiosFunction";
 import { BACKEND_URL } from "../../utils/urls";
 import { handleApiError } from "../../helpers/handleApiError";
 import useProductStore from "../../store/slices/products";
+import { toast } from "../useToast";
 
 const useDeleteProduct = () => {
   const setProducts = useProductStore((state) => state.setProducts);
@@ -15,6 +16,11 @@ const useDeleteProduct = () => {
         BACKEND_URL
       );
       setProducts(data.allProducts);
+      toast({
+        variant: "success",
+        title: "Product deleted",
+        description: data.message,
+      });
     } catch (error: unknown) {
       handleApiError(error);
     }
