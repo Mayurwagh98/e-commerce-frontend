@@ -12,7 +12,6 @@ const MyProfile = () => {
   });
 
   useEffect(() => {
-    console.log(JSON.stringify(user, null, 2));
     setProfileForm({
       ...profileForm,
       firstName: user?.firstName ?? "",
@@ -20,6 +19,12 @@ const MyProfile = () => {
       email: user?.email ?? "",
     });
   }, [user]);
+
+  const convertedDate = new Date(user?.createdAt).toLocaleString("en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <div className="max-w-6xl mx-auto mt-10 rounded-3xl bg-white text-gray-800 shadow-lg overflow-hidden">
@@ -30,7 +35,11 @@ const MyProfile = () => {
             New Subscriber
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-            Welcome Back, <span className="text-pink-600">Sienna</span>
+            Welcome Back,{" "}
+            <span className="text-pink-600">
+              {user?.firstName?.split("")[0]?.charAt(0)?.toUpperCase()?.trim() +
+                user?.firstName?.slice(1)}
+            </span>
           </h1>
           <p className="mt-4 text-gray-600 text-lg">
             Manage your profile, orders, and preferences with ease.
@@ -38,8 +47,8 @@ const MyProfile = () => {
         </div>
         <div className="flex justify-center md:justify-end">
           <img
-            src="https://i.pravatar.cc/200?img=47"
-            alt="Sienna Hewitt"
+            src={user?.avatar}
+            alt="profile"
             className="h-48 w-48 rounded-xl object-cover shadow-lg"
           />
         </div>
@@ -51,7 +60,7 @@ const MyProfile = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
           <div>
             <p className="text-sm text-gray-500">First seen</p>
-            <p className="font-semibold text-lg">1 Mar, 2025</p>
+            <p className="font-semibold text-lg">{convertedDate}</p>
           </div>
           <div>
             <p className="text-sm text-gray-500">First purchase</p>
@@ -105,7 +114,7 @@ const MyProfile = () => {
               onChange={(e) => console.log(e.target.value)}
             />
             <p className="text-xs text-green-600 mt-1">
-              ✔ Verified on 2 Jan, 2025
+              ✔ Verified on {convertedDate}
             </p>
           </div>
 
