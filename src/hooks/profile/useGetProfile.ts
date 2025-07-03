@@ -1,31 +1,29 @@
+import { useEffect } from "react";
 import makeApiRequest from "../../helpers/axiosFunction";
 import { handleApiError } from "../../helpers/handleApiError";
 import { BACKEND_URL } from "../../utils/urls";
-import { toast } from "../useToast";
 
-const useAuth = () => {
-  const userAuth = async () => {
+const useGetMyProfile = () => {
+  useEffect(() => {
+    getUserProfile();
+  }, []);
+  const getUserProfile = async () => {
+    console.log("called");
     try {
       const { data } = await makeApiRequest(
-        "post",
-        `/myprofile`,
+        "get",
+        `/user/myprofile`,
         null,
         { withCredentials: true },
         BACKEND_URL
       );
-      if (data.success) {
-        toast({
-          variant: "success",
-          title: "User created",
-          description: data.message,
-        });
-      }
+      console.log("data:", data);
     } catch (error: unknown) {
       handleApiError(error);
     }
   };
 
-  return { userAuth };
+  return { getUserProfile };
 };
 
-export default useAuth;
+export default useGetMyProfile;

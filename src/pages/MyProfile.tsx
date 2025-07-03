@@ -1,4 +1,7 @@
+import useGetMyProfile from "../hooks/profile/useGetProfile";
+
 const MyProfile = () => {
+  useGetMyProfile();
   return (
     <div className="max-w-6xl mx-auto mt-10 rounded-3xl bg-white text-gray-800 shadow-lg overflow-hidden">
       {/* Header */}
@@ -56,6 +59,7 @@ const MyProfile = () => {
                 type="text"
                 value="Sienna"
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+                onChange={(e) => console.log(e.target.value)}
               />
             </div>
             <div>
@@ -66,6 +70,7 @@ const MyProfile = () => {
                 type="text"
                 value="Hewitt"
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+                onChange={(e) => console.log(e.target.value)}
               />
             </div>
           </div>
@@ -78,6 +83,7 @@ const MyProfile = () => {
               type="email"
               value="siennahewitt@gmail.com"
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+              onChange={(e) => console.log(e.target.value)}
             />
             <p className="text-xs text-green-600 mt-1">
               ✔ Verified on 2 Jan, 2025
@@ -107,6 +113,7 @@ const MyProfile = () => {
                 type="text"
                 value="siennahewitt"
                 className="flex-1 px-4 py-3 focus:ring-2 focus:ring-pink-500"
+                onChange={(e) => console.log(e.target.value)}
               />
             </div>
           </div>
