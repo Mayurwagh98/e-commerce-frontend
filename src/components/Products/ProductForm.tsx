@@ -1,19 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "../ui/Input";
-
-interface ProductFormData {
-  title: string;
-  description: string;
-  imageUrl: string;
-  price: number;
-  rating?: number;
-  category?: string;
-  discount?: number;
-  stock?: number;
-}
+import useStoreProfile from "../../store/slices/userProfile";
+import useCreateProduct from "../../hooks/product/useCreateProduct";
+import type { ProductFormData } from "../../store/types";
 
 const ProductForm: React.FC = () => {
+  const { user } = useStoreProfile((state) => state.myProfile);
+  const { createProduct, loading } = useCreateProduct();
   const {
     register,
     handleSubmit,
@@ -21,8 +15,8 @@ const ProductForm: React.FC = () => {
   } = useForm<ProductFormData>();
 
   const onSubmit = (data: ProductFormData) => {
-    console.log("Submitted Data:", data);
-    // axios.post('/api/products', data)
+    console.log(JSON.stringify(data, null, 2));
+    createProduct({ ...data, user_id: user?._id });
   };
 
   return (
@@ -110,6 +104,8 @@ const ProductForm: React.FC = () => {
           {...register("discount")}
           className="w-full border border-gray-300 p-3 rounded"
           placeholder="Discount of the product"
+          min={1}
+          max={100}
         />
       </div>
 
@@ -127,8 +123,9 @@ const ProductForm: React.FC = () => {
         <button
           type="submit"
           className="bg-black text-white px-6 py-3 rounded hover:bg-gray-900"
+          disabled={loading}
         >
-          Add Product
+          {loading ? "Please wait.." : "Add Product"}
         </button>
       </div>
     </form>

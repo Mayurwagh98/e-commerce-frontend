@@ -35,3 +35,15 @@ export interface UserResponse {
   user: User;
   setProfile: (user: User) => void;
 }
+
+export interface ProductFormData {
+  user_id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  rating?: number;
+  category?: string;
+  discount?: number;
+  stock?: number;
+}
