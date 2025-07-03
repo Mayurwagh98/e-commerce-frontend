@@ -1,7 +1,26 @@
+import { useEffect, useState } from "react";
 import useGetMyProfile from "../hooks/profile/useGetProfile";
+import useStoreProfile from "../store/slices/userProfile";
 
 const MyProfile = () => {
   useGetMyProfile();
+  const { user } = useStoreProfile((state) => state.myProfile);
+  const [profileForm, setProfileForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  useEffect(() => {
+    console.log(JSON.stringify(user, null, 2));
+    setProfileForm({
+      ...profileForm,
+      firstName: user?.firstName ?? "",
+      lastName: user?.lastName ?? "",
+      email: user?.email ?? "",
+    });
+  }, [user]);
+
   return (
     <div className="max-w-6xl mx-auto mt-10 rounded-3xl bg-white text-gray-800 shadow-lg overflow-hidden">
       {/* Header */}
@@ -57,8 +76,8 @@ const MyProfile = () => {
               </label>
               <input
                 type="text"
-                value="Sienna"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+                value={profileForm.firstName}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 outline-none"
                 onChange={(e) => console.log(e.target.value)}
               />
             </div>
@@ -68,8 +87,8 @@ const MyProfile = () => {
               </label>
               <input
                 type="text"
-                value="Hewitt"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+                value={profileForm.lastName}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 outline-none"
                 onChange={(e) => console.log(e.target.value)}
               />
             </div>
@@ -81,8 +100,8 @@ const MyProfile = () => {
             </label>
             <input
               type="email"
-              value="siennahewitt@gmail.com"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+              value={profileForm.email}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 outline-none"
               onChange={(e) => console.log(e.target.value)}
             />
             <p className="text-xs text-green-600 mt-1">
@@ -94,10 +113,11 @@ const MyProfile = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Country
             </label>
-            <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500">
-              <option>🇺🇸 United States</option>
+            <select
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500"
+              disabled
+            >
               <option>🇮🇳 India</option>
-              <option>🇬🇧 United Kingdom</option>
             </select>
           </div>
 
@@ -111,9 +131,10 @@ const MyProfile = () => {
               </span>
               <input
                 type="text"
-                value="siennahewitt"
+                value={profileForm.firstName + profileForm.lastName}
                 className="flex-1 px-4 py-3 focus:ring-2 focus:ring-pink-500"
                 onChange={(e) => console.log(e.target.value)}
+                disabled
               />
             </div>
           </div>
