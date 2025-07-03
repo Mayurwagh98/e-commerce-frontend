@@ -1,27 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import makeApiRequest from "../../helpers/axiosFunction";
 import { handleApiError } from "../../helpers/handleApiError";
 import { BACKEND_URL } from "../../utils/urls";
+import useStoreProfile from "../../store/slices/userProfile";
 
 const useGetMyProfile = () => {
-  useEffect(() => {
-    getUserProfile();
-  }, []);
-  const getUserProfile = async () => {
-    console.log("called");
+  const setProfile = useStoreProfile((state) => state.setProfile);
+
+  const getUserProfile = useCallback(async () => {
     try {
       const { data } = await makeApiRequest(
         "get",
-        `/user/myprofile`,
+        "/user/myprofile",
         null,
         { withCredentials: true },
         BACKEND_URL
       );
-      console.log("data:", data);
+      setProfile(data);
     } catch (error: unknown) {
       handleApiError(error);
     }
-  };
+  }, [setProfile]);
+
+  useEffect(() => {
+    getUserProfile();
+  }, [getUserProfile]);
 
   return { getUserProfile };
 };
