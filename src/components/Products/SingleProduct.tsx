@@ -1,18 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../../store/types";
+import useDeleteProduct from "../../hooks/product/useDeleteProduct";
 
 const SingleProduct = ({ product }: { product: Product }) => {
   const naivgate = useNavigate();
+  const { deleteProduct } = useDeleteProduct();
   return (
     <div
       key={product._id}
       className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-      onClick={() => naivgate("/product-details/" + product._id)}
     >
       <img
         src={product.imageUrl}
         alt={product.title}
         className="h-48 w-full object-cover rounded-t-2xl"
+        onClick={() => naivgate("/product-details/" + product._id)}
       />
       <div className="p-4">
         <h2 className="text-lg font-semibold capitalize text-gray-800">
@@ -29,9 +31,17 @@ const SingleProduct = ({ product }: { product: Product }) => {
           <span>⭐ {product.rating}</span>
           <span>{product.stock} in stock</span>
         </div>
-        <button className="mt-4 w-full bg-pink-600 hover:bg-pink-700 text-white py-2 px-4 rounded-lg">
-          Add to Cart
-        </button>
+        <div className="flex justify-between items-center">
+          <button className="mt-4 w-[45%] bg-black hover:bg-pink-700 text-white py-2 px-4 rounded-lg text-sm">
+            Add to Cart
+          </button>
+          <button
+            className="mt-4 w-[45%] bg-red-600 hover:bg-pink-700 text-white py-2 px-4 rounded-lg text-sm"
+            onClick={() => deleteProduct(product._id)}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -19,3 +19,19 @@ export interface ProductDetailsState {
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
 }
+
+export interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  createdAt: string; // ISO date string
+  updatedAt: string; // ISO date string
+  __v: number;
+}
+
+export interface UserResponse {
+  success: boolean;
+  user: User;
+  setProfile: (user: User) => void;
+}
