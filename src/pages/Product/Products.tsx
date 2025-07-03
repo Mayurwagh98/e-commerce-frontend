@@ -32,7 +32,7 @@ const Products = () => {
               <CustomDrawer
                 children={
                   <>
-                    <ProductForm />
+                    <ProductForm setOpenDrawer={setOpenDrawer} />
                   </>
                 }
                 title={"Add Product"}

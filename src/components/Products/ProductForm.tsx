@@ -5,7 +5,7 @@ import useStoreProfile from "../../store/slices/userProfile";
 import useCreateProduct from "../../hooks/product/useCreateProduct";
 import type { ProductFormData } from "../../store/types";
 
-const ProductForm: React.FC = () => {
+const ProductForm: React.FC = ({ setOpenDrawer }) => {
   const { user } = useStoreProfile((state) => state.myProfile);
   const { createProduct, loading } = useCreateProduct();
   const {
@@ -16,7 +16,7 @@ const ProductForm: React.FC = () => {
 
   const onSubmit = (data: ProductFormData) => {
     console.log(JSON.stringify(data, null, 2));
-    createProduct({ ...data, user_id: user?._id });
+    createProduct({ ...data, user_id: user?._id }, setOpenDrawer);
   };
 
   return (
